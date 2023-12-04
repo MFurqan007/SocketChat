@@ -1,0 +1,141 @@
+.Background{
+    background-image: url('../public/Wallpaper.jpg'); /* Replace 'your-image.jpg' with the path to your image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: white; /* Text color on top of the background image */
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+.Wrapper{
+    width: 400px;
+    height: 400px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.9px);
+    -webkit-backdrop-filter: blur(2.9px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.Heading{
+    font-size: 36px;
+    color: black;
+    font-weight: 700;
+}
+.Input{
+    width: 250px;
+    height: 40px;
+    border-radius: 50px;
+    opacity: 0.8;
+    outline: none;
+    padding-left: 20px;
+}
+.Button{
+    width: 150px;
+    height: 40px;
+    border-radius: 50px;
+}
+.Button:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.Wrapper2{
+    width: 800px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.9px);
+    -webkit-backdrop-filter: blur(2.9px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    display: flex;
+    justify-items: start;
+    align-items: center;
+}
+
+.Left{
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.LTop{
+    width: auto;
+    height: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.Head2{
+    font-size: 32px;
+    font-weight: 600;
+    color: black;
+}
+.Cont2{
+    font-size: 20px;
+    font-weight: 400;
+    color: gainsboro;
+
+}
+
+.Right{
+    width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.MsgBox{
+    width: 400px;
+    min-height: 30px;
+    max-height: auto;
+    background-color: azure;
+    border-radius: 20px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.Msg{
+    width: 500px;
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.MsgInput{
+    width: 350px;
+    height: 30px;
+    outline: none;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.MsgBtn{
+    width: 100px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+}
+.MsgBtn:hover{
+    background-color: #420C09;
+    cursor: pointer;   
+}

@@ -13,6 +13,21 @@ function App() {
   const [room, setRoom] = useState("");
   const [chatIsVisible, setChatIsVisible] = useState(false);
   const [message, setMessage] = useState([]);
+  
+  const generateRandomUsername = () => {
+    const alphanumeric = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let username = '';
+    for (let i = 0; i < 7; i++) {
+      const randomIndex = Math.floor(Math.random() * alphanumeric.length);
+      username += alphanumeric.charAt(randomIndex);
+    }
+    return username;
+  };
+
+  useEffect(() => {
+    const randomUsername = generateRandomUsername();
+    setUser(randomUsername);
+  }, []);
 
   useEffect(() => {
     console.log('connected:', socket.connected)
@@ -54,37 +69,69 @@ function App() {
     setNewMessage("")
   }
   return (
-    <div style={{padding:20}}>
+    <div style={{padding:20}} class="Background">
       {!chatIsVisible ?
         <>
-          <input type = "text" placeholder='user' value= {user} onChange = {e => setUser(e.target.value)}/>
-          <br/>
-          <input type = "text" placeholder='room' value= {room} onChange = {e => setRoom(e.target.value)}/>
-          <br/>
-          <button onClick={handleEnterChatRoom}>enter</button>
+          <div class="Wrapper">
+            <p class="Heading">Chat Room</p>
+            <input 
+              type = "text" 
+              placeholder='user' 
+              class="Input" 
+              value= {user} 
+              disabled={true}
+              onChange = {e => setUser(e.target.value)}/>
+            <br/>
+            <input type = "text" placeholder='room' class="Input" value= {room} onChange = {e => setRoom(e.target.value)}/>
+            <br/>
+            <button class="Button" onClick={handleEnterChatRoom}>Enter</button>
+          </div>
+
         </>
         :
         <>
-          <h5>Room: {room} | User: {user}</h5>
-          <div
-            style={{
-              height:200,
-              width:250,
-              border:"1px solid #000",
-              overflowY: "scroll",
-              marginBottom:10,
-              padding:10
-            }}
-          >
-            {message.map( el => <div key={v4()}>{el}</div>)}
+          <div class="Wrapper2">
+            <div class="Left">
+              <div class="LTop">
+                <p class="Head2">Room | </p> 
+                <p class="Cont2">|  {room}</p>
+              </div>
+              <div className='LTop'>
+                <p class="Head2">User |</p>
+                <p class="Cont2">|  {user}</p>
+              </div>
+
+            </div>
+            <div class="Right">
+              <div
+                style={{
+                  height:330,
+                  width:480,
+                  border:"1px solid #000",
+                  overflowY: "scroll",
+                  marginBottom:10,
+                  padding:10
+                }}
+              >
+                {message.map( el => <div class="MsgBox" key={v4()}>{el}</div>)}
+              </div>
+              <div class="Msg">
+                <input
+                  type ="text"
+                  placeholder='Message Input'
+                  value={newMessage}
+                  class="MsgInput"
+                  onChange = {e=> setNewMessage(e.target.value)}
+                />
+                <button 
+                  onClick={handleSendMessage}
+                  class="MsgBtn"
+                >Send</button>
+              </div>
+              
+            </div>
           </div>
-          <input
-            type ="text"
-            placeholder='message'
-            value={newMessage}
-            onChange = {e=> setNewMessage(e.target.value)}
-          />
-          <button onClick={handleSendMessage}>send message</button>
+          
         </>
       }
     </div>
